@@ -39,6 +39,10 @@
     // Стейт, отвечающий за данные текущего пользователя
     const [currentUser, setCurrentUser] = React.useState({ name: 'Алёша' });
 
+    function handleChange(e) {
+      setLang(e.target.value);
+    }
+
     return (
       // «Внедряем» данные из translations[lang] с помощью провайдера первого контекста
       <TranslationContext.Provider value={translations[lang]}>
@@ -46,6 +50,10 @@
         <CurrentUserContext.Provider value={currentUser}>
           {/* Поддерево, в котором будет доступен контекст */}
           <Main />
+          <select onChange={handleChange}>
+            <option value="ru">Russian</option>
+            <option value="en">English</option>
+          </select>
         </CurrentUserContext.Provider>
       </TranslationContext.Provider>
     );
@@ -65,7 +73,7 @@
 
     return (
       <h1>
-        {translation.greeting}, {currentUser.name}
+        {translation.greeting}
       </h1>
     );
   }
