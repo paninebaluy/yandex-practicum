@@ -108,8 +108,8 @@
         <Chat {...props} />
         {shouldShowTools && (
           <div className="tools">
-            <button>Не беспокоить</button>
-            <button>Удалить</button>
+            <button>Mute</button>
+            <button>Delete</button>
           </div>
         )}
       </div>
@@ -132,7 +132,7 @@
 
   ReactDOM.render((
     <>
-      <h2>Чаты</h2>
+      <h2>Chats</h2>
       {chats.map((chat) => (
         <ChatWithTools id={chat.id} name={chat.name} lastMessageAt={chat.lastMessageAt} />
       ))}
